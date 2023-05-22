@@ -5,8 +5,9 @@
 1. package 생성 - com.mis.controller(dto, dao, util)생성 - servlet
 
 vo - > dao - > controller - > jsp
-				등록 - > 목록 - > 수정 - > 삭제
-				등록 - > 목록 - > 상세 -> 수정 - > 삭제
+	상품전체목록(등록, 수정, 삭제) dao 
+				등록 - > 목록 - > 수정 - > 삭제 controller
+				등록 - > 목록 - > 상세 -> 수정 - > 삭제 controller
 				
 CREATE TABLE MEMBER (
     NAME VARCHAR2(10),
