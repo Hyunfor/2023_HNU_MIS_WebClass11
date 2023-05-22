@@ -2,6 +2,8 @@
 1. 프로젝트 생성 - > web-INF/lib/ jar 라이브러리 복사
 2. properites jar 등록 - > server 실행 - > server.xml Connection pool 등록
 
+1. package 생성 - com.mis.controller 생성 - servlet
+
 CREATE TABLE MEMBER (
     NAME VARCHAR2(10),
     USERID VARCHAR2(10),
