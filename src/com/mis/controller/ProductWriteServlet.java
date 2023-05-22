@@ -49,8 +49,8 @@ public class ProductWriteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		// 상품 등록
-
 		request.setCharacterEncoding("UTF-8");
 
 		// 첨부파일 경로 설정
@@ -71,6 +71,7 @@ public class ProductWriteServlet extends HttpServlet {
 		MultipartRequest mulit = new MultipartRequest(request, uploadFilePath, uploadFileSizeLimit, encType,
 				new DefaultFileRenamePolicy());
 		
+		// MultipartRequest를 사용하여 사용자로 부터 입력받은 상품 정보 파라미터 가져오기
 		String name = mulit.getParameter("name");
 		int price = Integer.parseInt(mulit.getParameter("price"));
 		String description = mulit.getParameter("description");
