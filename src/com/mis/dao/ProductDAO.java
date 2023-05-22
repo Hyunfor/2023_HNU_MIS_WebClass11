@@ -61,9 +61,41 @@ public class ProductDAO {
 			}
 		}
 		
-		
 		return list;
 		
 	}
+	
+	// 상품 등록하기
+	public void insertProduct(ProductVO pVo) {
+		
+		String sql = "INSERT INTO PRODUCT VALUES(PRODUCT_SEQ.nextval, ?, ?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, pVo.getName());
+			pstmt.setInt(2, pVo.getPrice());
+			pstmt.setString(3, pVo.getPictureUrl());
+			pstmt.setString(3, pVo.getDescription());
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				DBManager.close(conn, pstmt);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 
 }
