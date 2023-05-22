@@ -61,7 +61,7 @@ public class UploadServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		String uploadFilePath = context.getRealPath(savePath);
 		
-		System.out.println("실제 첨푸파일 저장 경로: ");
+		System.out.println("실제 첨부파일 저장 경로: ");
 		System.out.println(uploadFilePath);
 		
 		try {
