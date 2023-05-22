@@ -143,9 +143,7 @@ public class ProductDAO {
 	// 상품 수정
 	public void updateProduct(ProductVO pVo) {
 
-		String sql = "UPDATE WHERE PRODUCT SET NAME=?, PRICE=?, PICTUREURL=?,"
-					+ " DESCRIPTION=? WHERE CODE=?";
-
+		String sql = "UPDATE PRODUCT SET NAME=?, PRICE=?, PICTUREURL=?," + " DESCRIPTION=? WHERE CODE=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -160,21 +158,52 @@ public class ProductDAO {
 			pstmt.setString(3, pVo.getPictureUrl());
 			pstmt.setString(4, pVo.getDescription());
 			pstmt.setInt(5, pVo.getCode());
-			
+
 			// 쿼리 실행
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			// 리소스 해제
 			try {
-				// 리소스 해제
 				DBManager.close(conn, pstmt);
 			} catch (Exception e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
+	}
+	
+	// 상품 삭제
+	public void deleteProduct(String code){
+		String sql = "DELETE PRODUCT WHERE CODE=?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			// code 변수 바인딩
+			pstmt.setString(1, code);
+			//쿼리 실행
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 리소스 해제
+			try {
+				DBManager.close(conn, pstmt);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}	
+		
 	}
 
 }
