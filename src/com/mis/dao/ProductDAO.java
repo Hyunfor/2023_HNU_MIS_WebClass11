@@ -81,7 +81,7 @@ public class ProductDAO {
 			pstmt.setString(1, pVo.getName());
 			pstmt.setInt(2, pVo.getPrice());
 			pstmt.setString(3, pVo.getPictureUrl());
-			pstmt.setString(3, pVo.getDescription());
+			pstmt.setString(4, pVo.getDescription());
 			
 			pstmt.executeUpdate();
 			

@@ -57,7 +57,7 @@ public class ProductWriteServlet extends HttpServlet {
 		String savePath = "upload";
 
 		// 첨부파일 사이즈 5MB
-		int uploadFileSizeLimit = 5 * 1024 * 1024;
+		int uploadFileSizeLimit = 20 * 1024 * 1024;
 
 		// 첨부파일 인코딩
 		String encType = "UTF-8";
