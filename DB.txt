@@ -1,0 +1,71 @@
+가장 매번 먼저 해야할 세팅
+1. 프로젝트 생성 - > web-INF/lib/ jar 라이브러리 복사
+2. properites jar 등록 - > server 실행 - > server.xml Connection pool 등록
+
+CREATE TABLE MEMBER (
+    NAME VARCHAR2(10),
+    USERID VARCHAR2(10),
+    PWD VARCHAR2(10),
+    EMAIL VARCHAR2(20),
+    PHONE CHAR(13),
+    ADMIN NUMBER(1) DEFAULT 0,
+    -- 0: 사용자, 1: 관리자
+    PRIMARY KEY(USERID)
+);
+
+SELECT * FROM tab;
+SELECT * FROM MEMBER;
+
+-- 추가 , 수정, 삭제, 변경시 COMMIT; 필수. COMMIT;해야 반영됨
+
+-- 3명의 회원정보 추가
+INSERT INTO MEMBER VALUES('이소미', 'somi', '1234', 'gmd@naver.com','010-2362-5157',0);
+INSERT INTO MEMBER VALUES('하상호', 'sang12', '1234', 'hal2@naver.com','010-4321-4567',1);
+INSERT INTO MEMBER VALUES('김윤승', 'light', '1234', 'youn1004@naver.com','010-2362-5157',0);
+COMMIT;
+
+SELECT * FROM MEMBER WHERE USERID='somi';
+SELECT * FROM MEMBER WHERE ADMIN=1;
+SELECT * FROM MEMBER WHERE ADMIN=0;
+-- 위와 동일한 쿼리문
+SELECT * FROM MEMBER WHERE ADMIN!=1;
+
+-- 업데이트
+SELECT * FROM MEMBER WHERE USERID='somi';
+UPDATE MEMBER SET PHONE ='010-0000-0000'
+WHERE USERID='somi';
+COMMIT;
+
+-- 삭제
+SELECT * FROM MEMBER WHERE USERID='somi';
+DELETE FROM MEMBER WHERE USERID='somi';
+COMMIT;
+
+CREATE TABLE EMPLOYEE (
+    NAME VARCHAR(20),
+    ADDRESS VARCHAR(100),
+    SSN VARCHAR(15)
+);
+
+SELECT * FROM EMPLOYEE;
+
+INSERT INTO EMPLOYEE VALUES('DUKE', 'SEOUL', '970224-1039234');
+INSERT INTO EMPLOYEE VALUES('PORORO', 'PUSAN', '001222-1038782');
+INSERT INTO EMPLOYEE VALUES('CANDY', 'DAEJEON', '981221-1829192');
+COMMIT;
+
+CREATE TABLE ITEM (
+    NAME VARCHAR2(30),
+    price VARCHAR2(40),
+    elucidate VARCHAR2(100)
+);
+
+SELECT * FROM ITEM;
+-- 테이블 삭제
+drop table ITEM;
+
+-- 아이템 정보 추가
+INSERT INTO ITEM VALUES('존윅4포스터', '10,000', '존윅4 영화 포스터');
+INSERT INTO ITEM VALUES('PS5디스크버전', '650,000', '플레이스테이션5 디스크버전');
+INSERT INTO ITEM VALUES('포르쉐911', '200,000,000', '나도 포르쉐 타고 싶다!');
+COMMIT;
