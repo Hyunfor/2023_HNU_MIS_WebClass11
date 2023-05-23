@@ -123,7 +123,7 @@ public class ProductDAO {
 				pVo.setCode(rs.getInt("code"));
 				pVo.setName(rs.getString("name"));
 				pVo.setPrice(rs.getInt("price"));
-				pVo.setPictureUrl(rs.getString("pictureurl"));
+				pVo.setPictureUrl(rs.getString("pictureUrl"));
 				pVo.setDescription(rs.getString("description"));
 			}
 
@@ -143,7 +143,7 @@ public class ProductDAO {
 	// 상품 수정
 	public void updateProduct(ProductVO pVo) {
 
-		String sql = "UPDATE PRODUCT SET NAME=?, PRICE=?, PICTUREURL=?," + " DESCRIPTION=? WHERE CODE=?";
+		String sql = "UPDATE PRODUCT SET NAME=?, PRICE=?, PICTUREURL=?, DESCRIPTION=? WHERE CODE=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -165,7 +165,6 @@ public class ProductDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// 리소스 해제
 			try {
 				DBManager.close(conn, pstmt);
 			} catch (Exception e) {
@@ -210,5 +209,5 @@ public class ProductDAO {
 	// 업로드한 이미지와 관계 없는 (자바의 신)이미지가 지속해서 나오는 문제.
 	// 수정시에 이미지를 등록하면 파일에는 업로드가 되나 
 	// 화면에선 바뀌지 않는 문제를 해결해야함.
-	// 그외에는 전부 정상 작동함.
+	// 그외에는 전부 정상 작동함. 콘솔창에 에러는 뜨지 않음.
 }

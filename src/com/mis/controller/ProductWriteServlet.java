@@ -75,7 +75,7 @@ public class ProductWriteServlet extends HttpServlet {
 		String name = mulit.getParameter("name");
 		int price = Integer.parseInt(mulit.getParameter("price"));
 		String description = mulit.getParameter("description");
-		String pictureUrl = mulit.getParameter("pictureUrl");
+		String pictureUrl = mulit.getFilesystemName("pictureUrl");
 		
 		// 상품정보 VO 담기
 		ProductVO pVo = new ProductVO();
